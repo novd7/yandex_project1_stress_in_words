@@ -1,6 +1,10 @@
 import sys
-
+import json
 from PyQt5.QtWidgets import QApplication, QWidget
+from start_window import StartWindow
+
+
+task, count = None, None
 
 
 class Program(QWidget):
@@ -14,8 +18,12 @@ class Program(QWidget):
 
 
 if __name__ == '__main__':
-    print(1)
+    # with open('data.json') as file:
+    #     data = json.load(file)
+    #     print(data)
     app = QApplication(sys.argv)
-    ex = Program()
+    ex = StartWindow()
     ex.show()
+    print(1)
     sys.exit(app.exec())
+print(task, count)
