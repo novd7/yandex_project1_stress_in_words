@@ -1,11 +1,14 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
+from PyQt5.QtWidgets import QMainWindow
+
 CONSONANTS = "бвгджзйклмнпрстфхцчшщъь"
 VOWELS = "аеёиоуыэюя"
 
 
-class WordStressWidget:
+class WordStressWidget(QMainWindow):
     def __init__(self, centralwidget, word_with_stress):
+        super().__init__()
         self.centralwidget = centralwidget
         self.word_with_stress = word_with_stress
         self.right_index = [i for i, letter in enumerate(self.word_with_stress) if letter.isupper()].pop()
@@ -34,23 +37,23 @@ class WordStressWidget:
             push_button.setText(i)
             if i in CONSONANTS:
                 push_button.clicked.connect(self.__cons_answer)
-                print(1)
             elif n == self.right_index:
                 push_button.clicked.connect(self.__right_answer)
-                print(2)
             else:
                 push_button.clicked.connect(self.__wrong_answer)
-                print(3)
             self.buttons.append(push_button)
     
     def __cons_answer(self):
         self.res = "cons"
         print("cons")
+        self.close()
     
     def __right_answer(self):
         self.res = True
         print(True)
+        self.close()
     
     def __wrong_answer(self):
         self.res = False
         print(False)
+        self.close()

@@ -31,6 +31,13 @@ class DesignMainWindowTask1(object):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.btn = QtWidgets.QPushButton(self)
+        self.btn.move(0, 200)
+        self.btn.setText("Далее")
+        self.lbl = QtWidgets.QLabel(self)
+        self.lbl.move(0, 220)
+        self.lbl.setGeometry(QtCore.QRect(0, 220, 220, 80))
+        self.lbl.setText("")
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
