@@ -44,16 +44,16 @@ class WordStressWidget(QMainWindow):
             self.buttons.append(push_button)
     
     def __cons_answer(self):
-        self.res = "cons"
+        self.res = (self.word_with_stress, "cons")
         print("cons")
         self.close()
     
     def __right_answer(self):
-        self.res = True
+        self.res = (self.word_with_stress, True)
         print(True)
         self.close()
     
     def __wrong_answer(self):
-        self.res = False
+        self.res = (self.word_with_stress, False)
         print(False)
         self.close()

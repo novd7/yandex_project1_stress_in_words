@@ -34,7 +34,5 @@ if __name__ == '__main__':
     plan = MainWindowTask1("тОрты")
     plan.show()
     app.exec_()
-    # print("_______________________________________________")
-    
     res = plan.wsw.res
     print(res)

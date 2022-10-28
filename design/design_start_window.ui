@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>375</width>
-    <height>154</height>
+    <width>508</width>
+    <height>181</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,13 +19,18 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>371</width>
-      <height>112</height>
+      <width>503</width>
+      <height>136</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QLabel" name="label_greetings">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string>Добро пожаловать!
 Предлагаю Вам подготовиться к ЕГЭ по русскому языку (задание 4)
@@ -59,7 +64,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>375</width>
+     <width>508</width>
      <height>21</height>
     </rect>
    </property>
