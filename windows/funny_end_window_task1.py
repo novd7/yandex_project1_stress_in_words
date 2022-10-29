@@ -16,6 +16,7 @@ class FunnyEndWindowTask1(QMainWindow, DesignFunnyEndWindowTask1):
         if __name__ == '__main__':
             self.smile_path = "../" + self.smile_path
         self.initUI()
+        self.would_like_to_receive_result = False
     
     def initUI(self):
         self.pushButton.clicked.connect(self.watch_result)
@@ -23,6 +24,7 @@ class FunnyEndWindowTask1(QMainWindow, DesignFunnyEndWindowTask1):
         self.image.setPixmap(self.pixmap)
 
     def watch_result(self):
+        self.would_like_to_receive_result = True
         self.close()
         # TODO: go to the window with results
 
