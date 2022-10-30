@@ -2,6 +2,7 @@ import random
 import sqlite3
 import sys
 from datetime import datetime, timezone, timedelta
+import os.path
 
 from PyQt5.QtWidgets import QApplication
 
@@ -11,22 +12,32 @@ from windows.main_window_task1 import MainWindowTask1
 from windows.main_window_task2 import MainWindowTask2
 from windows.start_window import StartWindow, TASK1, TASK2
 from windows.statistics_window import StatisticsWindow
+from database import db
 
 
 def main():
+    print(os.path.exists("data.sqlite"))
+    if not os.path.exists("data.sqlite"):
+        db.create_bd_of_words()
+        db.create_bd_of_results()
+    
     # Run start window
     # Get task and count tasks
     app = QApplication(sys.argv)
     start_window = StartWindow()
     start_window.show()
     app.exec_()
-    task = start_window.task
-    count = start_window.count
-    print(task, count, sep='\n')
+    try:
+        task = start_window.task
+    except AttributeError:
+        exit()
+    else:
+        count = start_window.count
+        print(task, count, sep='\n')
     
     # Connect to BD
     # Get all words and shuffle them
-    con = sqlite3.connect("database/data.sqlite")
+    con = sqlite3.connect("data.sqlite")
     cur = con.cursor()
     data = cur.execute("""SELECT right, wrong FROM words""").fetchall()
     random.shuffle(data)
@@ -34,7 +45,7 @@ def main():
     pluses = 0
     minuses = 0
     
-    def print_results(task_number, count_right_answers, count_wrong_answers, results_of_test):
+    def print_results(task_number, count_right_answers, count_wrong_answers, count, results_of_test):
         """
         Print results to console.
         Save results to BD.
@@ -46,7 +57,7 @@ def main():
         print(*results_of_test, sep='\n')
         print("Correct answers:", count_right_answers)
         print("Incorrect answers:", count_wrong_answers)
-        percent = str(round((count_right_answers / (count_right_answers + count_wrong_answers)) * 100)) + "%"
+        percent = str(round((count_right_answers / count) * 100)) + "%"
         print(percent)
         datetime_ = datetime.now(tz=timezone(timedelta(hours=3))) \
             .strftime("%d.%m.%Y %H:%M:%S")
@@ -98,7 +109,7 @@ def execute_task1(all_results, app, count, data, minuses, pluses, print_results)
         
         print(res)
         all_results.append(res)
-    print_results(1, pluses, minuses, all_results)
+    print_results(1, pluses, minuses, count, all_results)
 
 
 def execute_task2(all_results, app, count, data, minuses, pluses, print_results):
@@ -121,7 +132,7 @@ def execute_task2(all_results, app, count, data, minuses, pluses, print_results)
         
         print(res)
         all_results.append(res)
-    print_results(2, pluses, minuses, all_results)
+    print_results(2, pluses, minuses, count, all_results)
 
 
 if __name__ == '__main__':

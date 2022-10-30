@@ -10,9 +10,7 @@ class FunnyEndWindowTask1(QMainWindow, DesignFunnyEndWindowTask1):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.smile_path = "design/smile.png"
-        if __name__ == '__main__':
-            self.smile_path = "../" + self.smile_path
+        self.smile_path = get_path()
         self.initUI()
         self.would_like_to_receive_result = False
     
@@ -24,6 +22,15 @@ class FunnyEndWindowTask1(QMainWindow, DesignFunnyEndWindowTask1):
     def watch_result(self):
         self.would_like_to_receive_result = True
         self.close()
+        
+def get_path():
+    path = "design/smile.png"
+    try:
+        open(path)
+    except FileNotFoundError:
+        path = "../" + path
+    print(path)
+    return path
 
 
 if __name__ == '__main__':

@@ -12,9 +12,10 @@ from design.design_statistics_window import DesignStatisticsWindow
 class StatisticsWindow(QMainWindow, DesignStatisticsWindow):
     def __init__(self):
         super().__init__()
-        self.path_to_db = "database/data.sqlite"
-        if __name__ == '__main__':
-            self.path_to_db = "../" + self.path_to_db
+        # self.path_to_db = "database/data.sqlite"
+        # if __name__ == '__main__':
+        #     self.path_to_db = "../" + self.path_to_db
+        self.path_to_db = "data.sqlite"
         self.setupUi(self)
         self.initUI()
     
