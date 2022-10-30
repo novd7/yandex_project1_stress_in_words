@@ -58,6 +58,6 @@ class StatisticsWindow(QMainWindow, DesignStatisticsWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    plan = StatisticsWindow()
-    plan.show()
+    pr = StatisticsWindow()
+    pr.show()
     app.exec_()

@@ -50,6 +50,6 @@ class StartWindow(QMainWindow, DesignStartWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    plan = StartWindow()
-    plan.show()
+    pr = StartWindow()
+    pr.show()
     app.exec_()

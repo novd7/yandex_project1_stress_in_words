@@ -31,8 +31,8 @@ class MainWindowTask1(QMainWindow, DesignMainWindowTask1):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    plan = MainWindowTask1("тОрты")
-    plan.show()
+    pr = MainWindowTask1("тОрты")
+    pr.show()
     app.exec_()
-    res = plan.wsw.res
+    res = pr.wsw.res
     print(res)

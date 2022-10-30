@@ -43,7 +43,7 @@ class MainWindowTask2(QMainWindow, DesignMainWindowTask2):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    plan = MainWindowTask2("corr1", "corr2", "incorr", "corr3", ans=2)
-    plan.show()
+    pr = MainWindowTask2("corr1", "corr2", "incorr", "corr3", ans=2)
+    pr.show()
     app.exec_()
-    print(plan.res)
+    print(pr.res)

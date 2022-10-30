@@ -28,6 +28,6 @@ class FunnyEndWindowTask1(QMainWindow, DesignFunnyEndWindowTask1):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    plan = FunnyEndWindowTask1()
-    plan.show()
+    pr = FunnyEndWindowTask1()
+    pr.show()
     app.exec_()

@@ -35,6 +35,6 @@ class EndWindow(QMainWindow, DesignEndWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    plan = EndWindow([('корЫсть', True), ('создалА', False), ('аэропОрты', 'cons')], 33)
-    plan.show()
+    pr = EndWindow([('корЫсть', True), ('создалА', False), ('аэропОрты', 'cons')], 33)
+    pr.show()
     app.exec_()

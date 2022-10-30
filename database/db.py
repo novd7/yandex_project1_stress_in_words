@@ -30,7 +30,3 @@ def create_bd_of_results():
 
 create_bd_of_words()
 create_bd_of_results()
-# a = cur.execute("""SELECT * FROM words""").fetchall()
-# print(a)
-# a = cur.execute("""SELECT * FROM words""").fetchall()
-# print(a)
