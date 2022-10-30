@@ -23,7 +23,7 @@ class MainWindowTask1(QMainWindow, DesignMainWindowTask1):
     
     def close_(self):
         self.lbl.setText("")
-        if not self.wsw.res is None:
+        if self.wsw.res is not None:
             self.close()
         else:
             self.lbl.setText("Вы не выбрали ответ")

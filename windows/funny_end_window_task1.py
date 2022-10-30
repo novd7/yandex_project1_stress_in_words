@@ -1,10 +1,8 @@
 import sys
 
-from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
-from design.WordStressWidget import WordStressWidget
 from design.design_funny_end_window_task1 import DesignFunnyEndWindowTask1
 
 
@@ -22,11 +20,10 @@ class FunnyEndWindowTask1(QMainWindow, DesignFunnyEndWindowTask1):
         self.pushButton.clicked.connect(self.watch_result)
         self.pixmap = QPixmap(self.smile_path)
         self.image.setPixmap(self.pixmap)
-
+    
     def watch_result(self):
         self.would_like_to_receive_result = True
         self.close()
-        # TODO: go to the window with results
 
 
 if __name__ == '__main__':
